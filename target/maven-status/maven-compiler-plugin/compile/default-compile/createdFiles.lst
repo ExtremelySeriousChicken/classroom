@@ -1,0 +1,17 @@
+baseline/ClassroomEncoder$1.class
+baseline/GroupSizeEncodingDecoder.class
+baseline/ShirtSize.class
+baseline/ClassroomDecoder.class
+baseline/ClassroomDecoder$StudentsDecoder.class
+baseline/MessageHeaderEncoder.class
+baseline/MetaAttribute.class
+classroom/Main.class
+baseline/VarDataEncodingEncoder.class
+baseline/ClassroomEncoder$StudentsEncoder.class
+baseline/ClassroomEncoder$DesksEncoder.class
+baseline/VarDataEncodingDecoder.class
+baseline/ClassroomDecoder$1.class
+baseline/MessageHeaderDecoder.class
+baseline/ClassroomDecoder$DesksDecoder.class
+baseline/GroupSizeEncodingEncoder.class
+baseline/ClassroomEncoder.class

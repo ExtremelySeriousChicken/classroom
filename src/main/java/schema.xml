@@ -1,0 +1,66 @@
+<sbe:messageSchema xmlns:sbe="http://fixprotocol.io/2016/sbe"
+                   package="baseline"
+                   id="1"
+                   version="0"
+                   semanticVersion="1.0"
+                   description="Classroom example schema"
+                   byteOrder="littleEndian">
+
+    <types>
+        <composite name="messageHeader" description="Message identifiers and length of message root">
+            <type name="blockLength" primitiveType="uint16"/>
+            <type name="templateId" primitiveType="uint16"/>
+            <type name="schemaId" primitiveType="uint16"/>
+            <type name="version" primitiveType="uint16"/>
+        </composite>
+        <composite name="groupSizeEncoding" description="Repeating group dimensions">
+            <type name="blockLength" primitiveType="uint16"/>
+            <type name="numInGroup" primitiveType="uint16"/>
+        </composite>
+        <composite name="varDataEncoding">
+            <type name="length" primitiveType="uint32" maxValue="1073741824"/>
+            <type name="varData" primitiveType="uint8" length="0" characterEncoding="UTF-8"/>
+        </composite>
+    </types>
+    <types>
+        <type name="Year" primitiveType="uint16" />
+        <type name="UUID" primitiveType="uint16" characterEncoding="ASCII" />
+        <type name="ShirtColor" primitiveType="char" characterEncoding="char" />
+        <type name="GPA" primitiveType="uint16" />
+        <type name="NumTotal" primitiveType="uint16" />
+        <type name="NumTurnedIn" primitiveType="uint16"/>
+        <type name="NumLate" primitiveType="uint16" />
+        <type name="Desk" primitiveType="uint16" />
+        <type name="SurfaceArea" primitiveType="uint16" />
+        <type name="Chairs" primitiveType="uint16" />
+        <enum name="ShirtSize" encodingType="uint8">
+            <validValue name="XS">0</validValue>
+            <validValue name="S">1</validValue>
+            <validValue name="M">2</validValue>
+            <validValue name="L">3</validValue>
+            <validValue name="XL">4</validValue>
+        </enum>
+    </types>
+
+
+    <sbe:message name="Classroom" id="1" description="description of a classroom">
+        <group name="students" id="2" dimensionType="groupSizeEncoding">
+            <field name="year" id="5" type="Year" />
+            <field name="uuid" id="6" type="UUID" />
+            <field name="ShirtSize" id="7" type="ShirtSize" />
+            <field name="ShirtColor" id="8" type="ShirtColor" />
+            <field name="gpa" id="9" type="GPA" />
+            <field name="NumTotal" id="10" type="NumTotal" />
+            <field name="numTurnedIn" id="11" type="NumTurnedIn" />
+            <field name="numLate" id="12" type="NumLate" />
+            <field name="desk" id="13" type="Desk" />
+            <data name="firstName" id="3" type="varDataEncoding" />
+        </group>
+
+        <group name="desks" id="14" dimensionType="groupSizeEncoding">
+            <field name="surfaceArea" id="15" type="SurfaceArea" />
+            <field name="numChairs" id="16" type="Chairs" />
+        </group>
+
+    </sbe:message>
+</sbe:messageSchema>
